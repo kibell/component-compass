@@ -25,8 +25,7 @@ export const componentGroups: ComponentGroup[] = [
   { id: 'tables', name: 'Tables', icon: 'table', description: 'Data display components for structured information' },
   { id: 'alerts', name: 'Alerts', icon: 'bell', description: 'Notification and feedback components' },
   { id: 'badges', name: 'Badges', icon: 'tag', description: 'Status indicators and labels' },
-   { id: 'badges', name: 'Badges', icon: 'tag', description: 'Status indicators and labels' },
-  
+];
 
 export const components: ComponentItem[] = [
   // Buttons
