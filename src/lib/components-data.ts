@@ -34,7 +34,7 @@ export const components: ComponentItem[] = [
     name: 'Primary Button',
     group: 'buttons',
     description: 'The main call-to-action button used for primary actions like Save or Submit.',
-    previewImageUrl: '',
+    previewImageUrl: 'https://media.geeksforgeeks.org/wp-content/uploads/bootstrap-solid-button.png',
     tags: ['action', 'cta', 'submit'],
     markup: `<button class="slds-button slds-button_brand">
   Save
