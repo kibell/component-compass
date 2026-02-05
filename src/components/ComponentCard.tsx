@@ -1,8 +1,8 @@
-import { ExternalLink, Code, Eye } from 'lucide-react';
-import { ComponentItem } from '@/lib/components-data';
-import { cn } from '@/lib/utils';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
+import { ExternalLink, Code, Eye } from "lucide-react";
+import { ComponentItem } from "@/lib/components-data";
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 
 interface ComponentCardProps {
   component: ComponentItem;
@@ -10,7 +10,11 @@ interface ComponentCardProps {
   onCopyMarkup: (component: ComponentItem) => void;
 }
 
-export function ComponentCard({ component, onViewDetails, onCopyMarkup }: ComponentCardProps) {
+export function ComponentCard({
+  component,
+  onViewDetails,
+  onCopyMarkup,
+}: ComponentCardProps) {
   return (
     <article className="group flex flex-col overflow-hidden rounded-xl border border-border bg-card shadow-card transition-all duration-200 hover:shadow-card-hover hover:border-primary/30 animate-fade-in">
       {/* Preview Area */}
@@ -19,7 +23,7 @@ export function ComponentCard({ component, onViewDetails, onCopyMarkup }: Compon
           <img
             src={component.previewImageUrl}
             alt={`${component.name} preview`}
-            className="h-full w-full object-cover"
+            className="h-full w-full p-[4.75rem]"
           />
         ) : (
           <div className="flex h-full items-center justify-center">
@@ -43,7 +47,9 @@ export function ComponentCard({ component, onViewDetails, onCopyMarkup }: Compon
 
       {/* Content */}
       <div className="flex flex-1 flex-col p-4">
-        <h3 className="mb-1 text-base font-semibold text-foreground">{component.name}</h3>
+        <h3 className="mb-1 text-base font-semibold text-foreground">
+          {component.name}
+        </h3>
         <p className="mb-3 flex-1 text-sm text-muted-foreground line-clamp-2">
           {component.description}
         </p>
