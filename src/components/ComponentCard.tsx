@@ -18,12 +18,12 @@ export function ComponentCard({
   return (
     <article className="group flex flex-col overflow-hidden rounded-xl border border-border bg-card shadow-card transition-all duration-200 hover:shadow-card-hover hover:border-primary/30 animate-fade-in">
       {/* Preview Area */}
-      <div className="relative aspect-[16/10] overflow-hidden bg-preview-bg preview-pattern">
+      <div className="relative aspect-[16/10] overflow-hidden bg-preview-bg preview-pattern flex justify-center items-center">
         {component.previewImageUrl ? (
           <img
             src={component.previewImageUrl}
             alt={`${component.name} preview`}
-            className="h-full w-full p-[4.75rem]"
+            className=""
           />
         ) : (
           <div className="flex h-full items-center justify-center">
