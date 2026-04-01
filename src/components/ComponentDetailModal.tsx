@@ -1,16 +1,24 @@
-import { useState } from 'react';
-import { X, Copy, Check, Code, FileText, Lightbulb, ExternalLink } from 'lucide-react';
-import { ComponentItem } from '@/lib/components-data';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { useState } from "react";
+import {
+  X,
+  Copy,
+  Check,
+  Code,
+  FileText,
+  Lightbulb,
+  ExternalLink,
+} from "lucide-react";
+import { ComponentItem } from "@/lib/components-data";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
-} from '@/components/ui/dialog';
-import { cn } from '@/lib/utils';
+} from "@/components/ui/dialog";
+import { cn } from "@/lib/utils";
 
 interface ComponentDetailModalProps {
   component: ComponentItem | null;
@@ -94,7 +102,7 @@ export function ComponentDetailModal({
         <div className="overflow-y-auto p-6">
           {/* Preview Area */}
           <div className="mb-6 overflow-hidden rounded-lg border border-preview-border bg-preview-bg preview-pattern">
-            <div className="flex min-h-[200px] items-center justify-center p-8">
+            <div className="flex min-h-[200px] items-center justify-center p-8 w-full">
               {component.previewImageUrl ? (
                 <img
                   src={component.previewImageUrl}

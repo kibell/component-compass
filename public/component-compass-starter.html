@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<!-- First Name Amp 
+  %%[
+  var @contact 
+  set @contact = QueryParameter('SFID')
+  var @subscriberRows
+
+set @subscriberRows = RetrieveSalesforceObjects(
+   "Contact",
+   "FirstName, Academic_Advisor_Name__c, SNHU_Email__c",
+   "Id", "=", @contact )
+
+if RowCount(@subscriberRows) == 1 then /* there should only be one row */
+  var @subscriberRow, @FirstName, @Propercasefirstname, @AdvisorName
+  set @subscriberRow = Row(@subscriberRows, 1)
+  set @firstName = Field(@subscriberRow, "FirstName")
+ set @propercasefirstname = Propercase(@firstname)
+ set @AdvisorName = Field(@subscriberRow, "Academic_Advisor_Name__c")
+ set @SNHUEmail = Field(@subscriberRow, "SNHU_Email__c")
+
+ENDIF
+
+Var @preferred_first_name__C
+
+set @preferred_first_name__C = Lookup("ENT.Unify-Contacts-PFN-Clean","Preferred_First_Name__c","id", @contact)
+ 
+var @firstnamecombo
+Set @firstnamecombo = @preferred_first_name__C
+IF(EMPTY(@preferred_first_name__C))
+THEN
+Set @firstnamecombo = @firstname
+ENDIF
+  ]%%
+-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Starter Template </title>
+    <link rel="stylesheet" type="text/css" href="./resources/css/style.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="shortcut icon" href="https://www.snhu.edu/assets/SNHU/images/common/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="https://www.snhu.edu/assets/SNHU/images/common/favicon.ico" type="image/x-icon" />
+    <link
+        href="https://snhu.tfaforms.net/dist/form-builder/5.0.0/wforms-layout.css?v=dc32c8645b2385d544026180d37a5a70eef875e5"
+        rel="stylesheet" type="text/css" />
+    <link href="https://snhu.tfaforms.net/uploads/themes/theme-31.css" rel="stylesheet" type="text/css" />
+    <link
+        href="https://snhu.tfaforms.net/dist/form-builder/5.0.0/wforms-jsonly.css?v=dc32c8645b2385d544026180d37a5a70eef875e5"
+        rel="alternate stylesheet" title="This stylesheet activated by javascript" type="text/css" />
+    <style>
+
+    </style>
+
+
+
+
+    <!-- FORM: HEAD SECTION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="referrer" content="no-referrer-when-downgrade">
+
+    <script type="text/javascript"
+        src="https://snhu.tfaforms.net/wForms/3.11/js/wforms.js?v=dc32c8645b2385d544026180d37a5a70eef875e5"></script>
+    <script type="text/javascript">
+        wFORMS.behaviors.prefill.skip = false;
+    </script>
+    <script type="text/javascript"
+        src="https://snhu.tfaforms.net/wForms/3.11/js/localization-en_US.js?v=dc32c8645b2385d544026180d37a5a70eef875e5"></script>
+    <script type="text/javascript" async src=https://play.vidyard.com/embed/v4.js></script>
+
+    <!-- END FORM: HEAD SECTION -->
+
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4NXPNK9L4W"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-4NXPNK9L4W');
+    </script>
+
+    <!-- Hotjar Tracking Code for SNHU Properties -->
+    <script>
+        (function (h, o, t, j, a, r) {
+            h.hj = h.hj || function () { (h.hj.q = h.hj.q || []).push(arguments) };
+            h._hjSettings = { hjid: 2360018, hjsv: 6 };
+            a = o.getElementsByTagName('head')[0];
+            r = o.createElement('script'); r.async = 1;
+            r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+    </script>
+
+</head>
+
+
+<body>
+
+    <!-- Header + Nav -->
+
+    <header>
+        <!-- nav components go here -->
+    </header>
+
+
+
+    <main>
+        <!-- section components go here -->
+    </main>
+
+    <footer>
+        <!-- footer components go here -->
+    </footer>
+
+    <!-- ================================
+      PASTE COMPONENTS ABOVE THIS LINE
+    ================================= -->
+
+
+    <!--Footer-->
+
+    <footer class="py-5 bg-ink-blue">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4 d-flex justify-content-center align-items-center">
+                    <p class="" style="color:#fff"> <strong>SNHU Admission</strong><br>
+                        2500 North River Road
+                        <br> Manchester, NH 03106
+                        <br>
+                        <a href="Tel:8883870864" class="text-link">800.668.1249 </a>
+                        <br>
+                        <a href="mailto:admissions@snhu.edu" class="text-link primary-link"> admissions@snhu.edu </a>
+                </div>
+
+                <div class="col-md-4 d-flex justify-content-center align-items-center my-3">
+                    <a href="https://www.snhu.edu/" target="_blank" class="link-dark text-decoration-none">
+                        <img src="https://client-data.knak.io/production/email_assets/5fd10b569d941/Y9PaAR4BN1uvwQSeUR37Jtdwa2YUrN1By1RZIsk8.png"
+                            height="80" alt="SNHU logo">
+                    </a>
+                </div>
+
+                <div class="col-md-4 d-flex justify-content-center align-items-center">
+                    <p style="color: #fff;">
+                        © %%=FormatDate(Now(), "yyyy")=%%<br>
+                        Southern New Hampshire University<br>
+                        View our <a href="https://www.snhu.edu/privacy-policy" class="text-link primary-link">Privacy
+                            Policy</a> | <a href="https://www.snhu.edu/about-us/accessibility"
+                            class="text-link primary-link">Accessibility at SNHU</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!--  Countdown scripts -->
+    <script>
+        function calculateCountdown(targetDate) {
+            // This will give us the current date and time as of right now
+            var currentDate = new Date();
+            // Calculate the time difference between the target date that is ref in ampscript and current date
+            var timeDifference = targetDate - currentDate;
+            // Calculate days, hours, minutes, and seconds
+            var days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+            // Return the countdown as an object to make it easier for us to use in other functions
+            return {
+                days: days,
+                hours: hours,
+                minutes: minutes,
+                seconds: seconds
+            };
+        }
+        function updateCountdownDisplay() {
+            var dateElement = document.getElementById('nextTermStartDate');
+            var dateString = dateElement.innerText;
+            var targetDate = new Date(dateString);
+            var countdown = calculateCountdown(targetDate);
+            // Update the inner HTML of elements with respective ids
+            document.getElementById('days').innerHTML = countdown.days;
+            document.getElementById('hours').innerHTML = countdown.hours;
+            document.getElementById('minutes').innerHTML = countdown.minutes;
+            document.getElementById('seconds').innerHTML = countdown.seconds;
+            // Check if the target date is reached
+            if (countdown.days <= 0 && countdown.hours <= 0 && countdown.minutes <= 0 && countdown.seconds <= 0) {
+                document.getElementById('countdown-headline').innerHTML = "You’re on your way!";
+                document.getElementById("countdown").style.display = "none";
+            }
+        }
+        // Call the updateCountdownDisplay function to update the display initially
+        updateCountdownDisplay();
+        // Update the display every second (1000 milliseconds)
+        setInterval(updateCountdownDisplay, 1000);
+    </script>
+
+    <!-- Accordion Script -->
+    <script>
+        (function () {
+            var buttons = document.querySelectorAll('.accordion-button[data-bs-toggle="collapse"]');
+            function getPanel(btn) {
+                var target = btn.getAttribute("data-bs-target");
+                if (!target) return null;
+                return document.querySelector(target);
+            }
+            function closeItem(btn) {
+                var panel = getPanel(btn);
+                if (!panel) return;
+                panel.classList.remove("show");
+                btn.classList.add("collapsed");
+                btn.setAttribute("aria-expanded", "false");
+            }
+            function openItem(btn) {
+                var panel = getPanel(btn);
+                if (!panel) return;
+                var parentSelector = panel.getAttribute("data-bs-parent");
+                if (parentSelector) {
+                    var parent = document.querySelector(parentSelector);
+                    if (parent) {
+                        var siblingButtons = parent.querySelectorAll('.accordion-button[data-bs-toggle="collapse"]');
+                        siblingButtons.forEach(function (b) {
+                            if (b !== btn) {
+                                closeItem(b);
+                            }
+                        });
+                    }
+                }
+                panel.classList.add("show");
+                btn.classList.remove("collapsed");
+                btn.setAttribute("aria-expanded", "true");
+            }
+            // Force everything closed on load
+            buttons.forEach(function (btn) {
+                closeItem(btn);
+            });
+            // Click handling
+            buttons.forEach(function (btn) {
+                btn.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    var panel = getPanel(btn);
+                    if (!panel) return;
+                    var isOpen = panel.classList.contains("show");
+                    if (isOpen) {
+                        closeItem(btn);
+                    } else {
+                        openItem(btn);
+                    }
+                });
+            });
+        })();
+
+    </script>
+</body>
+
+</html>

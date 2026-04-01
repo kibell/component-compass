@@ -1,6 +1,5 @@
-import { ExternalLink, Code, Eye } from "lucide-react";
+import { Code, Eye } from "lucide-react";
 import { ComponentItem } from "@/lib/components-data";
-import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
@@ -15,21 +14,25 @@ export function ComponentCard({
   onViewDetails,
   onCopyMarkup,
 }: ComponentCardProps) {
+  const hasPreviewImage = Boolean(component.previewImageUrl?.trim());
+
   return (
     <article className="group flex flex-col overflow-hidden rounded-xl border border-border bg-card shadow-card transition-all duration-200 hover:shadow-card-hover hover:border-primary/30 animate-fade-in">
       {/* Preview Area */}
       <div className="relative aspect-[16/10] overflow-hidden bg-preview-bg preview-pattern flex justify-center items-center">
-        {component.previewImageUrl ? (
+        {hasPreviewImage ? (
           <img
             src={component.previewImageUrl}
             alt={`${component.name} preview`}
             className=""
           />
         ) : (
-          <div className="flex h-full items-center justify-center">
-            <div className="flex flex-col items-center gap-2 text-muted-foreground">
-              <Code className="h-8 w-8 opacity-40" />
-              <span className="text-xs font-medium opacity-60">Preview</span>
+          <div className="h-full w-full p-3">
+            <div className="h-full w-full overflow-auto rounded-md border border-border/60 bg-background/95 p-3 text-sm text-foreground">
+              <div
+                className="preview-html"
+                dangerouslySetInnerHTML={{ __html: component.markup }}
+              />
             </div>
           </div>
         )}
