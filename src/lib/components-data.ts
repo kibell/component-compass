@@ -30,6 +30,12 @@ export const componentGroups: ComponentGroup[] = [
       "Full Pre made Section Layouts for structuring and presenting content",
   },
   {
+    id: "hero-sections",
+    name: "Hero",
+    icon: "square",
+    description: "Headers with variations",
+  },
+  {
     id: "typography",
     name: "Typography",
     icon: "square",
@@ -96,37 +102,217 @@ export const componentGroups: ComponentGroup[] = [
     icon: "square",
     description: "Footer components for site-wide information and links",
   },
+
+  {
+    id: "scripts",
+    name: "JS Scripts",
+    icon: "panel-top-bottom-dashed",
+    description:
+      "Useful JavaScript snippets for common interactive features like countdown timers, accordions, etc. If using the editing tool include all scripts at the end of the page in a dedicated 'Scripts' section so they can be easily copied together.",
+  },
 ];
 
 export const components: ComponentItem[] = [
+  //Hero Sections
+  {
+    id: "weekly-planner-overlap",
+    name: "Weekly Planner Hero with Advisor Form",
+    group: "hero-sections",
+    description:
+      "Hero-style welcome section with overlapping advisor message form for weekly planning pages.",
+    previewImageUrl: `${import.meta.env.BASE_URL}Images/Hero/overlap-form-hero.png`,
+    tags: ["hero", "form", "advisor", "dashboard", "overlap"],
+    markup: `  <div class="overlap-content">
+
+      <!-- Hero Section -->
+      <section class="z-n1 bg-container weekly-planner-bg header-content bg-pos-top">
+        <div class="container py-5">
+          <div class="row">
+            <div class="col-lg-5 col-sm-12 mb-m-5">
+
+              <div class="card rad-tr-bl-60 bg-sky p-5">
+                <h1 class="text-break">Welcome,<br>{First Name}!</h1>
+                <p class="text-lg">
+                  Here's a peek at what’s due in your courses this week. No need to tackle everything at once—take a look, plan ahead and come back whenever you need to.
+                </p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Advisor Form Section -->
+      <section class="z-1 form-content">
+        <div class="container bg-tan brdr-rad-20 form-placeholder p-5 my-5">
+          <div class="row px-5 align-items-stretch">
+
+            <div class="col-lg-3">
+              <p class="text-lg fw-bold mb-0">
+                Have a question or message for your advisor.
+              </p>
+            </div>
+
+            <div class="col-lg-7">
+              <textarea 
+                class="form-control w-100 p-3" 
+                rows="2"
+                placeholder="Write your message here"
+              ></textarea>
+            </div>
+
+            <div class="col-lg-2">
+              <button class="btn-corner btn-primary h-100 w-100" type="button">
+                Submit
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+    </div>
+`,
+    notes:
+      "Use as a top-of-page experience for dashboards or weekly planners. Combines a personalized welcome message with an advisor contact form. Designed for overlapping layout styling.",
+  },
+
+  {
+    id: "welcome-hero-prep-success",
+    name: "Welcome Hero – Prep for Success",
+    group: "hero-sections",
+    description:
+      "Personalized welcome hero section introducing the Prep for Success resource page.",
+    previewImageUrl: `${import.meta.env.BASE_URL}Images/Hero/register-hero.png`,
+    tags: ["hero", "welcome", "intro", "personalized"],
+    markup: `  <section id="welcome" class="welcome-hero registration-bg bg-container py-5">
+      <div class="container">
+        <div class="row">
+          
+          <div class="col-md-6">
+            <div class="bg-ink-blue p-5 rad-tr-bl-60">
+
+              <h1 class="text-white">
+                , welcome to your Prep for Success resource page!
+              </h1>
+
+              <p class="text-white mt-4">
+                We’ve created this page to show you how students at SNHU succeed in their courses —
+                with best practices, time-saving tips and the best ways to reach out for support when you need it.
+              </p>
+
+              <p class="text-white mt-3 fw-bold">
+                YOU DON'T HAVE TO READ THIS PAGE ALL AT ONCE.
+              </p>
+
+              <p class="text-white">
+                Give it a quick scan, bookmark it and come back whenever you need to look something up.
+              </p>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+`,
+    notes:
+      "Use as a top-of-page hero for onboarding or resource pages. Supports AMPscript personalization for first name and works well with background imagery or color overlays.",
+  },
   // Buttons
   {
-    id: "btn-primary",
-    name: "Primary Button ",
+    id: "button-primary-corner",
+    name: "Primary Corner Button",
     group: "buttons",
-    description:
-      "The main call-to-action button used for primary actions like Save or Submit.",
-    previewImageUrl:
-      "https://image.dream.snhu.edu/lib/fe9213737461067576/m/1/95dfb2f7-9d00-401a-b6ab-41a8f4e6a8c6.png",
-    tags: ["action", "cta", "submit"],
-    markup: `<button class="slds-button slds-button_brand">
-  Save
-</button>`,
+    description: "Primary branded button with corner radius styling.",
+    previewImageUrl: `${import.meta.env.BASE_URL}Images/Button Images/primary-btn-corner.png`,
+    tags: ["button", "primary", "corner", "cta"],
+    markup: `  <a href="#" class="btn-corner btn-primary">Primary Action</a>
+
+  <button class="btn-corner btn-primary" type="button">Primary Action</button>
+`,
     notes:
-      "Use for the most important action on the page. Limit to one per section.",
+      "Use the anchor version for navigation and the button version for actions. This component combines the corner shape with the primary brand style.",
   },
   {
-    id: "btn-secondary",
-    name: "Secondary Button Rounded",
+    id: "button-secondary-corner",
+    name: "Secondary Corner Button",
     group: "buttons",
-    description: "A neutral button for secondary actions like Cancel or Back.",
-    previewImageUrl:
-      "https://image.dream.snhu.edu/lib/fe9213737461067576/m/1/e38483be-e03a-4d00-a86c-816b7563eb7d.png",
-    tags: ["button", "round", "cancel"],
-    markup: `<button class="slds-button slds-button_neutral">
-  Cancel
-</button>`,
-    notes: "Use alongside primary buttons for alternative actions.",
+    description: "Secondary branded button with corner radius styling.",
+    previewImageUrl: `${import.meta.env.BASE_URL}Images/Button Images/secondary-btn-corner.png`,
+    tags: ["button", "secondary", "corner"],
+    markup: `  <a href="#" class="btn-corner btn-secondary">Secondary Action</a>
+
+  <button class="btn-corner btn-secondary" type="button">Secondary Action</button>
+`,
+    notes:
+      "Use for secondary actions. Anchor for navigation, button for interaction.",
+  },
+  {
+    id: "button-primary-rounded",
+    name: "Primary Rounded Button",
+    group: "buttons",
+    description: "Primary branded button with rounded pill styling.",
+    previewImageUrl: `${import.meta.env.BASE_URL}Images/Button Images/primary-btn-rounded.png`,
+    tags: ["button", "primary", "rounded", "cta"],
+    markup: `  <a href="#" class="btn-rounded btn-primary">Primary Action</a>
+
+  <button class="btn-rounded btn-primary" type="button">Primary Action</button>
+`,
+    notes: "Use when a softer, pill-shaped primary button is preferred.",
+  },
+  {
+    id: "button-secondary-rounded",
+    name: "Secondary Rounded Button",
+    group: "buttons",
+    description: "Secondary branded button with rounded pill styling.",
+    previewImageUrl: `${import.meta.env.BASE_URL}Images/Button Images/secondary-btn-rounded.png`,
+    tags: ["button", "secondary", "rounded"],
+    markup: `  <a href="#" class="btn-rounded btn-secondary">Secondary Action</a>
+
+  <button class="btn-rounded btn-secondary" type="button">Secondary Action</button>
+`,
+    notes: "Use for lower-emphasis rounded actions.",
+  },
+  {
+    id: "button-primary-standard",
+    name: "Primary Standard Button",
+    group: "buttons",
+    description: "Primary branded button using the default button shape.",
+    previewImageUrl: `${import.meta.env.BASE_URL}Images/Button Images/primary-btn.png`,
+    tags: ["button", "primary", "standard"],
+    markup: `  <a href="#" class="btn btn-primary">Primary Action</a>
+
+  <button class="btn btn-primary" type="button">Primary Action</button>
+`,
+    notes:
+      "Use as the default primary button when a simple rectangular shape is needed.",
+  },
+  {
+    id: "button-secondary-standard",
+    name: "Secondary Standard Button",
+    group: "buttons",
+    description: "Secondary branded button using the default button shape.",
+    previewImageUrl: `${import.meta.env.BASE_URL}Images/Button Images/secondary-btn.png`,
+    tags: ["button", "secondary", "standard"],
+    markup: `  <a href="#" class="btn btn-secondary">Secondary Action</a>
+
+  <button class="btn btn-secondary" type="button">Secondary Action</button>
+`,
+    notes:
+      "Use as the default secondary button when a simple rectangular shape is needed.",
+  },
+  {
+    id: "button-no-outline",
+    name: "No Outline Button",
+    group: "buttons",
+    description: "Minimal transparent button style with no visible border.",
+    previewImageUrl: `${import.meta.env.BASE_URL}Images/Button Images/no-outline.png`,
+    tags: ["button", "minimal", "text"],
+    markup: `  <button class="btn btn-no-outline" type="button">Minimal Action</button>
+`,
+    notes:
+      "Use for very low-emphasis treatments. This style disables pointer events in the current CSS, so it may function more like a display treatment than an interactive control.",
   },
 
   //videos
@@ -165,6 +351,29 @@ export const components: ComponentItem[] = [
             </p>
         </div>`,
     notes: "The fundamental container for grouping related content.",
+  },
+  {
+    id: "card-simple-course",
+    name: "Simple Course Card",
+    group: "cards",
+    description:
+      "Basic card displaying course, discussion, and instructor information.",
+    previewImageUrl: `${import.meta.env.BASE_URL}Images/Card Images/simple-card.png`,
+    tags: ["card", "course", "instructor", "content"],
+    markup: `  <div class="card-simple">
+      <div class="card-body">
+        <h4>{Course Name} – {Discussion Name}</h4>
+
+        <p class="mb-1 fw-semibold">Instructor:</p>
+        <ul class="m-0 list-style-none">
+          <li>{Instructor Name}</li>
+          <li>{Instructor Email}</li>
+        </ul>
+      </div>
+    </div>
+`,
+    notes:
+      "Use for displaying course-related information such as discussions and instructor details. Works well in lists or dashboard-style layouts.",
   },
   {
     id: "card-number",
@@ -338,55 +547,118 @@ export const components: ComponentItem[] = [
     description: "Horizontal nav with timer.",
     previewImageUrl: `${import.meta.env.BASE_URL}Images/Nav Images/Timer Nav with with bg.png`,
     tags: ["tabs", "horizontal", "switch"],
-    markup: `  <nav class="countdown-nav navbar navbar-expand-lg p-3 navbar-bg-white ">
-      <div class="container">
-        <a class="navbar-brand" href="https://www.snhu.edu/">
-          <img
-          class="logo-blue-text"
-            alt="SNHU Logo" height="80" />
-        </a>
-       <div class="d-flex  align-items-center mt-3 countdown-wrapper">
-      <div >
-        <h3 id="countdown-headline" >Next Term Starts in:  
-        </h3>
-      </div>
-      <div id="countdown">
-        <span id="nextTermStartDate" class="d-none"> 4/26/2026 12:00:00 AM</span>
-        <ul>
-          <li>
-            <span id="days"></span>Days
-          </li>
-          <li>
-            <span id="hours"></span>Hours
-          </li>
-          <li>
-            <span id="minutes"></span>Minutes
-          </li>
-        </ul>
+    markup: `<header class="bg-white">
+  <nav class="countdown-nav navbar navbar-expand-lg p-3 navbar-bg-white ">
+    <div class="container">
+      <a class="navbar-brand" href="https://www.snhu.edu/">
+        <img
+        class="logo-blue-text"
+          alt="SNHU Logo" height="80" />
+      </a>
+     <div class="d-flex  align-items-center mt-3 countdown-wrapper">
+    <div >
+      <h3 id="countdown-headline" >Next Term Starts in:  
+      </h3>
+    </div>
+    <div id="countdown">
+      <span id="nextTermStartDate" class="d-none"> 4/26/2026 12:00:00 AM</span>
+      <ul>
+        <li>
+          <span id="days"></span>Days
+        </li>
+        <li>
+          <span id="hours"></span>Hours
+        </li>
+        <li>
+          <span id="minutes"></span>Minutes
+        </li>
+      </ul>
+    </div>
+  </div>
+    <div class=" justify-content-end"  id="navbarNavAltMarkup">
+      <div class="navbar-nav d-flex">
+        <a href="Tel:8883870861" class="nav-link mx-3 " target="_blank">Call</a>
+        <a href="sms:21216" class="nav-link head-link mx-3" target="_blank">Text</a>
+        <a href="mailto:admissions@snhu.edu" class="nav-link head-link mx-3" target="_blank">Email</a>
       </div>
     </div>
-        <div class=" justify-content-end"  id="navbarNavAltMarkup">
-          <div class="navbar-nav d-flex">
-            <a href="Tel:8883870861" class="nav-link mx-3 " target="_blank">Call</a>
-            <a href="sms:21216" class="nav-link head-link mx-3" target="_blank">Text</a>
-            <a href="mailto:admissions@snhu.edu" class="nav-link head-link mx-3" target="_blank">Email</a>
-          </div>
-        </div>
-      </div>
-    </nav>
+    </div>
+  </nav>
+</header>
 `,
     notes:
-      "Use for content that is related but doesn't need to be viewed simultaneously.",
+      "For countdown functionality, include a script that calculates the time difference between the current date and the target date (next term start) and updates the #days, #hours, and #minutes spans accordingly. The #nextTermStartDate span can be used to store the target date in a machine-readable format. Can be copied from the Scripts Section",
+  },
+
+  {
+    id: "advisor-nav-white",
+    name: "Advisor Nav with White Background",
+    group: "navigation",
+    description:
+      "Navigation bar with SNHU branding, advisor information, and contact actions.",
+    previewImageUrl: `${import.meta.env.BASE_URL}Images/Nav Images/advsior-nav.png`,
+    tags: ["navigation", "advisor", "contact", "header"],
+    markup: `<header class="bg-white">
+  <nav class="navbar navbar-expand-lg py-3">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <a class="navbar-brand" href="https://www.snhu.edu/">
+        <img 
+          src=""
+          alt="SNHU Logo" 
+          class="logo-blue-text" 
+          height="64"
+        />
+      </a>
+
+      <div class="nav-advisor text-center">
+        <p class="fw-semibold mb-0 small text-uppercase">Your Advisor</p>
+        <p class="fw-bold mb-0">{Advisor Name}</p>
+      </div>
+
+      <div class="nav-actions d-flex align-items-center gap-3">
+        <a 
+          class="nav-link text-center"
+          href="mailto:{advisorEmail}"
+        >
+          Email<br>
+          <span class="small">{advisorEmail}</span>
+        </a>
+
+        <a 
+          class="nav-link text-center"
+          href="tel:{advisorPhone}"
+        >
+          Call<br>
+          <span class="small">{advisorPhone}</span>
+        </a>
+
+        <a 
+          class="btn btn-primary btn-corner"
+          href="{loginLink}"
+        >
+          Log in to Brightspace
+        </a>
+      </div>
+
+    </div>
+  </nav>
+</header>
+`,
+    notes:
+      "Use when a page needs advisor-specific support actions in the header, including direct contact options and a Brightspace login CTA.",
   },
 
   {
     id: "nav-logo-call-text",
     name: "Simple Nav – Logo, Call & Text Links",
     group: "navigation",
-    description: "Logo left, call and text contact links right. No countdown. White background.",
+    description:
+      "Logo left, call and text contact links right. No countdown. White background.",
     previewImageUrl: `${import.meta.env.BASE_URL}Images/Nav Images/nav-white-bg.png`,
     tags: ["nav", "simple", "contact", "call", "text"],
-    markup: `<nav class="navbar navbar-expand-lg p-3 navbar-bg-white">
+    markup: `<header class="bg-white">
+<nav class="navbar navbar-expand-lg p-3 navbar-bg-white">
   <div class="container">
     <a class="navbar-brand" href="https://www.snhu.edu/">
       <img class="logo-blue-text" alt="SNHU Logo" height="80" />
@@ -398,8 +670,10 @@ export const components: ComponentItem[] = [
       </div>
     </div>
   </div>
-</nav>`,
-    notes: "Uses logo-blue-text CSS class instead of a hardcoded src so the logo stays in sync with the design system. Add navbar-bg-white for white background or navbar-bg-blue with bg-heritage for the dark variant.",
+</nav>
+</header>`,
+    notes:
+      "Uses logo-blue-text CSS class instead of a hardcoded src so the logo stays in sync with the design system. Add navbar-bg-white for white background or navbar-bg-blue with bg-heritage for the dark variant.",
   },
 
   // Tables
@@ -730,9 +1004,24 @@ export const components: ComponentItem[] = [
       "A column that spans 1 of 12 columns at the medium breakpoint (≥768px).",
     previewImageUrl: `${import.meta.env.BASE_URL}Images/Component Images/col-md-1.png`,
     tags: ["grid", "column", "md", "1/12"],
-    markup: `<div class="row">
-  <div class="col-md-1">col-md-1</div>
-</div>`,
+    markup: `<section>
+  <div class="container">
+  <div class="row">
+  <div class="col-md-1">{add component here}</div>
+  <div class="col-md-1">{add component here}</div>
+  <div class="col-md-1">{add component here}</div>
+  <div class="col-md-1">{add component here}</div>
+  <div class="col-md-1">{add component here}</div>
+  <div class="col-md-1">{add component here}</div>
+  <div class="col-md-1">{add component here}</div>
+  <div class="col-md-1">{add component here}</div>
+  <div class="col-md-1">{add component here}</div>
+  <div class="col-md-1">{add component here}</div>
+  <div class="col-md-1">{add component here}</div>
+  <div class="col-md-1">{add component here}</div>
+  </div>
+</div>
+</section>`,
     notes: "Takes up 8.33% width at medium screens and above.",
   },
   {
@@ -743,9 +1032,18 @@ export const components: ComponentItem[] = [
       "A column that spans 2 of 12 columns at the medium breakpoint (≥768px).",
     previewImageUrl: `${import.meta.env.BASE_URL}Images/Component Images/col-md-2.png`,
     tags: ["grid", "column", "md", "2/12"],
-    markup: `<div class="row">
-  <div class="col-md-2">col-md-2</div>
-</div>`,
+    markup: `<section>
+  <div class="container">
+  <div class="row">
+  <div class="col-md-2">{add component here}</div>
+  <div class="col-md-2">{add component here}</div>
+  <div class="col-md-2">{add component here}</div>
+  <div class="col-md-2">{add component here}</div>
+  <div class="col-md-2">{add component here}</div>
+  <div class="col-md-2">{add component here}</div>
+  </div>
+</div>
+</section>`,
     notes: "Takes up 16.66% width at medium screens and above.",
   },
   {
@@ -756,9 +1054,16 @@ export const components: ComponentItem[] = [
       "A column that spans 3 of 12 columns at the medium breakpoint (≥768px).",
     previewImageUrl: `${import.meta.env.BASE_URL}Images/Component Images/col-md-3.png`,
     tags: ["grid", "column", "md", "3/12"],
-    markup: `<div class="row">
-  <div class="col-md-3">col-md-3</div>
-</div>`,
+    markup: `<section>
+  <div class="container">
+  <div class="row">
+  <div class="col-md-3">{add component here}</div>
+  <div class="col-md-3">{add component here}</div>
+  <div class="col-md-3">{add component here}</div>
+  <div class="col-md-3">{add component here}</div>
+  </div>
+</div>
+</section>`,
     notes: "Takes up 25% width at medium screens and above.",
   },
   {
@@ -769,9 +1074,15 @@ export const components: ComponentItem[] = [
       "A column that spans 4 of 12 columns at the medium breakpoint (≥768px).",
     previewImageUrl: `${import.meta.env.BASE_URL}Images/Component Images/col-md-4.png`,
     tags: ["grid", "column", "md", "4/12"],
-    markup: `<div class="row">
-  <div class="col-md-4">col-md-4</div>
-</div>`,
+    markup: `<section>
+  <div class="container">
+  <div class="row">
+  <div class="col-md-4">{add component here}</div>
+  <div class="col-md-4">{add component here}</div>
+  <div class="col-md-4">{add component here}</div>
+  </div>
+</div>
+</section>`,
     notes: "Takes up 33.33% width at medium screens and above.",
   },
   {
@@ -782,9 +1093,15 @@ export const components: ComponentItem[] = [
       "A column that spans 5 of 12 columns at the medium breakpoint (≥768px).",
     previewImageUrl: `${import.meta.env.BASE_URL}Images/Component Images/col-md-5.png`,
     tags: ["grid", "column", "md", "5/12"],
-    markup: `<div class="row">
-  <div class="col-md-5">col-md-5</div>
-</div>`,
+    markup: `<section>
+  <div class="container">
+  <div class="row">
+  <div class="col-md-5">{add component here}</div>
+  <div class="col-md-5">{add component here}</div>
+  <div class="col-md-2">{add component here}</div>
+  </div>
+</div>
+</section>`,
     notes: "Takes up 41.66% width at medium screens and above.",
   },
   {
@@ -795,9 +1112,14 @@ export const components: ComponentItem[] = [
       "A column that spans 6 of 12 columns at the medium breakpoint (≥768px).",
     previewImageUrl: `${import.meta.env.BASE_URL}Images/Component Images/col-md-6.png`,
     tags: ["grid", "column", "md", "6/12"],
-    markup: `<div class="row">
-  <div class="col-md-6">col-md-6</div>
-</div>`,
+    markup: `<section>
+  <div class="container">
+  <div class="row">
+  <div class="col-md-6">{add component here}</div>
+  <div class="col-md-6">{add component here}</div>
+  </div>
+</div>
+</section>`,
     notes: "Takes up 50% width at medium screens and above.",
   },
   {
@@ -808,9 +1130,14 @@ export const components: ComponentItem[] = [
       "A column that spans 7 of 12 columns at the medium breakpoint (≥768px).",
     previewImageUrl: `${import.meta.env.BASE_URL}Images/Component Images/col-md-7.png`,
     tags: ["grid", "column", "md", "7/12"],
-    markup: `<div class="row">
-  <div class="col-md-7">col-md-7</div>
-</div>`,
+    markup: `<section>
+  <div class="container">
+  <div class="row">
+  <div class="col-md-7">{add component here}</div>
+  <div class="col-md-5">{add component here}</div>
+  </div>
+</div>
+</section>`,
     notes: "Takes up 58.33% width at medium screens and above.",
   },
   {
@@ -821,9 +1148,14 @@ export const components: ComponentItem[] = [
       "A column that spans 8 of 12 columns at the medium breakpoint (≥768px).",
     previewImageUrl: `${import.meta.env.BASE_URL}Images/Component Images/col-md-8.png`,
     tags: ["grid", "column", "md", "8/12"],
-    markup: `<div class="row">
-  <div class="col-md-8">col-md-8</div>
-</div>`,
+    markup: `<section>
+  <div class="container">
+  <div class="row">
+  <div class="col-md-8">{add component here}</div>
+  <div class="col-md-4">{add component here}</div>
+  </div>
+</div>
+</section>`,
     notes: "Takes up 66.66% width at medium screens and above.",
   },
   {
@@ -834,9 +1166,14 @@ export const components: ComponentItem[] = [
       "A column that spans 9 of 12 columns at the medium breakpoint (≥768px).",
     previewImageUrl: `${import.meta.env.BASE_URL}Images/Component Images/col-md-9.png`,
     tags: ["grid", "column", "md", "9/12"],
-    markup: `<div class="row">
-  <div class="col-md-9">col-md-9</div>
-</div>`,
+    markup: `<section>
+  <div class="container">
+  <div class="row">
+  <div class="col-md-9">{add component here}</div>
+  <div class="col-md-3">{add component here}</div>
+  </div>
+</div>
+</section>`,
     notes: "Takes up 75% width at medium screens and above.",
   },
   {
@@ -847,9 +1184,14 @@ export const components: ComponentItem[] = [
       "A column that spans 10 of 12 columns at the medium breakpoint (≥768px).",
     previewImageUrl: `${import.meta.env.BASE_URL}Images/Component Images/col-md-10.png`,
     tags: ["grid", "column", "md", "10/12"],
-    markup: `<div class="row">
-  <div class="col-md-10">col-md-10</div>
-</div>`,
+    markup: `<section>
+  <div class="container">
+  <div class="row">
+  <div class="col-md-10">{add component here}</div>
+  <div class="col-md-2">{add component here}</div>
+  </div>
+</div>
+</section>`,
     notes: "Takes up 83.33% width at medium screens and above.",
   },
   {
@@ -860,9 +1202,14 @@ export const components: ComponentItem[] = [
       "A column that spans 11 of 12 columns at the medium breakpoint (≥768px).",
     previewImageUrl: `${import.meta.env.BASE_URL}Images/Component Images/col-md-11.png`,
     tags: ["grid", "column", "md", "11/12"],
-    markup: `<div class="row">
-  <div class="col-md-11">col-md-11</div>
-</div>`,
+    markup: `<section>
+  <div class="container">
+  <div class="row">
+  <div class="col-md-11">{add component here}</div>
+  <div class="col-md-1">{add component here}</div>
+  </div>
+</div>
+</section>`,
     notes: "Takes up 91.66% width at medium screens and above.",
   },
   {
@@ -873,9 +1220,13 @@ export const components: ComponentItem[] = [
       "A column that spans all 12 columns at the medium breakpoint (≥768px).",
     previewImageUrl: `${import.meta.env.BASE_URL}Images/Component Images/col-md-12.png`,
     tags: ["grid", "column", "md", "12/12"],
-    markup: `<div class="row">
-  <div class="col-md-12">col-md-12</div>
-</div>`,
+    markup: `<section>
+  <div class="container">
+  <div class="row">
+  <div class="col-md-12">{add component here}</div>
+  </div>
+</div>
+</section>`,
     notes: "Full-width column.",
   },
 
@@ -925,6 +1276,47 @@ export const components: ComponentItem[] = [
   },
 
   // Content Sections
+
+  {
+    id: "program-info-bar",
+    name: "Program Info Bar",
+    group: "content-sections",
+    description:
+      "Top-of-page info bar displaying program, advisor, and term end date.",
+    previewImageUrl: `${import.meta.env.BASE_URL}Images/section/gold-bar-section.png`,
+    tags: ["info", "program", "advisor", "summary", "header"],
+    markup: `  <section class="program-section bg-gold py-3">
+      <div class="container">
+        <div class="row text-center">
+
+          <div class="col-md-4">
+            <div class="program-info-item">
+              <p class="text-uppercase fw-bold mb-1 small">Your Program</p>
+              <p class="mb-0">%%=v(@Program)=%%</p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="program-info-item">
+              <p class="text-uppercase fw-bold mb-1 small">Your Advisor</p>
+              <p class="mb-0">%%=v(@AdvisorName)=%%</p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="program-info-item">
+              <p class="text-uppercase fw-bold mb-1 small">Term Ends</p>
+              <p class="mb-0">%%=FormatDate(@nextterm_enddate,"MMMM d")=%%</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+`,
+    notes:
+      "Use as a top-level summary bar for student dashboards or planner pages. Displays key contextual information like program, advisor, and term timeline using AMPscript.",
+  },
   {
     id: "video-todo-split",
     name: "Video + To-Do List – Side by Side",
@@ -981,11 +1373,12 @@ export const components: ComponentItem[] = [
       "Swap the Vidyard src for your video URL. Toggle d-none on the todo-wrapper to show/hide items. btn-no-outline disables pointer events — use it for completed states only.",
   },
 
-   {
+  {
     id: "hero-split-banner-image",
     name: "Hero – Banner Image BG, Split Cards",
     group: "content-sections",
-    description: "Full-width banner image background. Left: dark blue card with personalized headline. Right: stacked white info card + gold hashtag card.",
+    description:
+      "Full-width banner image background. Left: dark blue card with personalized headline. Right: stacked white info card + gold hashtag card.",
     previewImageUrl: `${import.meta.env.BASE_URL}Images/section/hero-split-cards.png`,
     tags: ["hero", "banner", "split", "personalization"],
     markup: `<section class="bg-container img-1">
@@ -1021,14 +1414,16 @@ export const components: ComponentItem[] = [
     </div>
   </div>
 </section>`,
-    notes: "Replace [First Name], program name, and housing status with your personalization tokens. img-1 pulls the animated GIF banner via CSS variable.",
+    notes:
+      "Replace [First Name], program name, and housing status with your personalization tokens. img-1 pulls the animated GIF banner via CSS variable.",
   },
 
   {
     id: "confirmation-checkmark",
     name: "Confirmation – Centered Checkmark with Message",
     group: "content-sections",
-    description: "Centered confirmation message with checkmark image, headline, and contact links. Gold background with large bold text.",
+    description:
+      "Centered confirmation message with checkmark image, headline, and contact links. Gold background with large bold text.",
     previewImageUrl: `${import.meta.env.BASE_URL}Images/section/confirmation.png`,
     tags: ["confirmation", "checkmark", "centered", "success"],
     markup: `<section class="bg-gold py-5">
@@ -1051,14 +1446,16 @@ export const components: ComponentItem[] = [
     </div>
   </div>
 </section>`,
-    notes: "bg-gold matches the original gold background. text-5xl + fw-bold + text-ink-blue replicates the you-in-text style (2.5rem, bold, #00244e). The checkmark is absolutely positioned above the section using position-absolute, top-0, start-50, and translate-middle — all defined in your source CSS. pt-5 on the column creates clearance so the text doesn't overlap the image.",
+    notes:
+      "bg-gold matches the original gold background. text-5xl + fw-bold + text-ink-blue replicates the you-in-text style (2.5rem, bold, #00244e). The checkmark is absolutely positioned above the section using position-absolute, top-0, start-50, and translate-middle — all defined in your source CSS. pt-5 on the column creates clearance so the text doesn't overlap the image.",
   },
 
   {
     id: "free-app-checkmark-cards",
     name: "Feature Cards – 2x2 Checkmark Grid with CTA Headline",
     group: "content-sections",
-    description: "Left headline with CTA, right 2x2 grid of benefit cards each with a checkmark icon badge.",
+    description:
+      "Left headline with CTA, right 2x2 grid of benefit cards each with a checkmark icon badge.",
     previewImageUrl: `${import.meta.env.BASE_URL}Images/section/feature-card-2x2.png`,
     tags: ["cards", "checklist", "benefits", "grid", "cta"],
     markup: `<section class="py-5 mb-5">
@@ -1126,14 +1523,16 @@ export const components: ComponentItem[] = [
     </div>
   </div>
 </section>`,
-    notes: "card is defined in your source CSS and provides the white background and shadow. position-relative on the card combined with position-absolute top-0 start-0 translate-middle on the img places the checkmark badge at the top-left corner of each card. pt-4 and ps-4 create clearance so the card text doesn't sit behind the icon. The checkmark image src is hardcoded from the SNHU CDN.",
+    notes:
+      "card is defined in your source CSS and provides the white background and shadow. position-relative on the card combined with position-absolute top-0 start-0 translate-middle on the img places the checkmark badge at the top-left corner of each card. pt-4 and ps-4 create clearance so the card text doesn't sit behind the icon. The checkmark image src is hardcoded from the SNHU CDN.",
   },
 
   {
     id: "hero-bg-image-blue-card",
     name: "Hero – Background Image with Blue Rounded Card",
     group: "content-sections",
-    description: "Full-width background image with a heritage blue card overlaid on the left. Card has asymmetric border radius, padding, and white text.",
+    description:
+      "Full-width background image with a heritage blue card overlaid on the left. Card has asymmetric border radius, padding, and white text.",
     previewImageUrl: `${import.meta.env.BASE_URL}Images/section/hero-rounded-card.png`,
     tags: ["hero", "banner", "blue", "card", "personalization"],
     markup: `<section class="py-5 position-relative bg-container min-h-100"
@@ -1149,7 +1548,8 @@ export const components: ComponentItem[] = [
     </div>
   </div>
 </section>`,
-    notes: "bg-container and the inline background-image style replicate hero-section since your CSS variable --banner-image-1 points to a different image — swap the URL to your own. bg-heritage matches the #0a3370 card background. rad-tl-br replicates the border-radius: 0 60px asymmetric shape defined in brdr-theme-bg-blue. p-5 matches the 4rem padding. text-white on both h1 and p replaces the brdr-theme-bg-blue > * { color: #ffffff } rule. text-lg fw-normal on the p replicates p-head at 1.5rem/400 weight — the closest available in your type scale.",
+    notes:
+      "bg-container and the inline background-image style replicate hero-section since your CSS variable --banner-image-1 points to a different image — swap the URL to your own. bg-heritage matches the #0a3370 card background. rad-tl-br replicates the border-radius: 0 60px asymmetric shape defined in brdr-theme-bg-blue. p-5 matches the 4rem padding. text-white on both h1 and p replaces the brdr-theme-bg-blue > * { color: #ffffff } rule. text-lg fw-normal on the p replicates p-head at 1.5rem/400 weight — the closest available in your type scale.",
   },
 
   //Typography
@@ -1161,7 +1561,8 @@ export const components: ComponentItem[] = [
     previewImageUrl: ``,
     tags: ["heading", "h1", "typography"],
     markup: `<h1>Your Heading Here</h1>`,
-    notes: "Renders at 3rem (--fs-5xl), font-weight 600, color --color-ink-blue. Defined globally on the h1 selector in your source CSS.",
+    notes:
+      "Renders at 3rem (--fs-5xl), font-weight 600, color --color-ink-blue. Defined globally on the h1 selector in your source CSS.",
   },
 
   {
@@ -1183,7 +1584,8 @@ export const components: ComponentItem[] = [
     previewImageUrl: ``,
     tags: ["heading", "h2", "typography"],
     markup: `<h2>Your Heading Here</h2>`,
-    notes: "Renders at 2.5rem (--fs-4xl), font-weight 700, color --color-ink-blue.",
+    notes:
+      "Renders at 2.5rem (--fs-4xl), font-weight 700, color --color-ink-blue.",
   },
 
   {
@@ -1216,7 +1618,8 @@ export const components: ComponentItem[] = [
     previewImageUrl: ``,
     tags: ["heading", "h3", "typography"],
     markup: `<h3>Your Subheading Here</h3>`,
-    notes: "Renders at 1.5rem (--fs-xl), font-weight 600, color --color-ink-blue.",
+    notes:
+      "Renders at 1.5rem (--fs-xl), font-weight 600, color --color-ink-blue.",
   },
 
   {
@@ -1249,7 +1652,8 @@ export const components: ComponentItem[] = [
     previewImageUrl: ``,
     tags: ["heading", "h4", "typography", "uppercase", "label"],
     markup: `<h4 class="text-uppercase fw-bold">Your Label Here</h4>`,
-    notes: "Matches the uppercase label pattern used in the hero info card (Academic Program, Campus Housing Status).",
+    notes:
+      "Matches the uppercase label pattern used in the hero info card (Academic Program, Campus Housing Status).",
   },
 
   {
@@ -1260,9 +1664,61 @@ export const components: ComponentItem[] = [
     previewImageUrl: ``,
     tags: ["heading", "h5", "typography"],
     markup: `<h5>Your Sub-Label Here</h5>`,
-    notes: "Renders at 1.125rem (--fs-md), font-weight 600. Commonly used inside accordion body content.",
+    notes:
+      "Renders at 1.125rem (--fs-md), font-weight 600. Commonly used inside accordion body content.",
   },
 
+  //Scripts
+
+  {
+    id: "countdown-js-script",
+    name: "Countdown JS Script",
+    group: "scripts",
+    description: "JavaScript snippet for creating a countdown timer.",
+    previewImageUrl: ``,
+    tags: ["js", "countdown", "timer"],
+    markup: ` <script>
+    function calculateCountdown(targetDate) {
+      // This will give us the current date and time as of right now
+      var currentDate = new Date();
+      // Calculate the time difference between the target date that is ref in ampscript and current date
+      var timeDifference = targetDate - currentDate;
+      // Calculate days, hours, minutes, and seconds
+      var days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+      // Return the countdown as an object to make it easier for us to use in other functions
+      return {
+        days: days,
+        hours: hours,
+        minutes: minutes,
+        seconds: seconds
+      };
+    }
+    function updateCountdownDisplay() {
+      var dateElement = document.getElementById('nextTermStartDate');
+      var dateString = dateElement.innerText;
+      var targetDate = new Date(dateString);
+      var countdown = calculateCountdown(targetDate);
+      // Update the inner HTML of elements with respective ids
+      document.getElementById('days').innerHTML = countdown.days;
+      document.getElementById('hours').innerHTML = countdown.hours;
+      document.getElementById('minutes').innerHTML = countdown.minutes;
+      document.getElementById('seconds').innerHTML = countdown.seconds;
+      // Check if the target date is reached
+      if (countdown.days <= 0 && countdown.hours <= 0 && countdown.minutes <= 0 && countdown.seconds <= 0) {
+        document.getElementById('countdown-headline').innerHTML = "You’re on your way!";
+        document.getElementById("countdown").style.display = "none";
+      }
+    }
+    // Call the updateCountdownDisplay function to update the display initially
+    updateCountdownDisplay();
+    // Update the display every second (1000 milliseconds)
+    setInterval(updateCountdownDisplay, 1000);
+  </script>`,
+    notes: "JavaScript snippet for creating a countdown timer.",
+  },
 ];
 
 export const getComponentsByGroup = (groupId: string): ComponentItem[] => {
