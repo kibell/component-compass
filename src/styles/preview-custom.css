@@ -201,11 +201,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-section {
-  margin-bottom: 4rem;
-  padding-top: 4rem;
-  padding-bottom: 4rem;
-}
+
 /* Headings */
 h1,
 h2,

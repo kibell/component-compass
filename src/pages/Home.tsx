@@ -6,6 +6,7 @@ import {
   Compass,
   Copy,
   Download,
+  ExternalLink,
   Layers,
   Search,
   Sparkles,
@@ -138,7 +139,7 @@ export default function Home() {
 
       <main className="flex min-w-0 flex-1 flex-col overflow-y-auto lg:pl-72">
         {/* Hero */}
-        <section className="border-b border-border bg-card px-6 py-10 lg:px-8 lg:py-12">
+        <section className="border-b border-border bg-card p-0">
           <div className="mx-auto flex max-w-6xl flex-col gap-8">
             <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
               <div className="max-w-3xl space-y-4 pt-10 lg:pt-0">
@@ -159,6 +160,20 @@ export default function Home() {
               </div>
 
               <div className="flex flex-col gap-3 sm:flex-row">
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-amber-500 text-black shadow-lg hover:bg-amber-400"
+                >
+                  <a
+                    href="https://kibell.github.io/component-sandbox/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <ExternalLink className="h-4 w-4" />
+                    Open Live Component Sandbox
+                  </a>
+                </Button>
                 <Button asChild size="lg">
                   <Link to="/components">Browse components</Link>
                 </Button>
@@ -185,6 +200,20 @@ export default function Home() {
                 </Button>
               </div>
             </div>
+
+            <Card className="border-amber-200 bg-amber-50">
+              <CardHeader className="pb-3">
+                <CardTitle className="text-lg text-amber-900">
+                  Quick Preview Workflow
+                </CardTitle>
+                <CardDescription className="text-amber-800">
+                  Copy any component markup from this library and paste it into
+                  your IDE (or the sandbox) to get an immediate preview. This
+                  helps you validate spacing, content, and layout before adding
+                  it to your final project.
+                </CardDescription>
+              </CardHeader>
+            </Card>
 
             {/* Stats row */}
             <div className="grid gap-4 md:grid-cols-4">
@@ -299,6 +328,11 @@ export default function Home() {
                 <div className="rounded-lg border p-4">
                   Use “Copy starter HTML” if you want to paste the full template
                   straight into your IDE.
+                </div>
+                <div className="rounded-lg border p-4">
+                  Pasting copied markup into your IDE gives you a fast live
+                  preview loop so you can tweak classes and content before
+                  publishing.
                 </div>
                 <div className="rounded-lg border p-4">
                   Open the detail modal before copying so you can review the
