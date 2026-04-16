@@ -110,6 +110,13 @@ export const componentGroups: ComponentGroup[] = [
     description:
       "Useful JavaScript snippets for common interactive features like countdown timers, accordions, etc. If using the editing tool include all scripts at the end of the page in a dedicated 'Scripts' section so they can be easily copied together.",
   },
+  {
+    id: "amp-scripts",
+    name: "AMP Scripts",
+    icon: "panel-top-bottom-dashed",
+    description:
+      "Useful AMP Script snippets for personalization and interactivity in AMP pages.",
+  },
 ];
 
 export const components: ComponentItem[] = [
@@ -547,12 +554,12 @@ export const components: ComponentItem[] = [
     description: "Horizontal nav with timer.",
     previewImageUrl: `${import.meta.env.BASE_URL}Images/Nav Images/Timer Nav with with bg.png`,
     tags: ["tabs", "horizontal", "switch"],
-    markup: `<header class="bg-white">
-  <nav class="countdown-nav navbar navbar-expand-lg p-3 navbar-bg-white ">
+    markup: `<header class="navbar-bg-white">
+  <nav class="countdown-nav navbar navbar-expand-lg p-3  ">
     <div class="container">
       <a class="navbar-brand" href="https://www.snhu.edu/">
         <img
-        class="logo-blue-text"
+        class="nav-logo"
           alt="SNHU Logo" height="80" />
       </a>
      <div class="d-flex  align-items-center mt-3 countdown-wrapper">
@@ -598,7 +605,7 @@ export const components: ComponentItem[] = [
       "Navigation bar with SNHU branding, advisor information, and contact actions.",
     previewImageUrl: `${import.meta.env.BASE_URL}Images/Nav Images/advsior-nav.png`,
     tags: ["navigation", "advisor", "contact", "header"],
-    markup: `<header class="bg-white">
+    markup: `<header class="navbar-bg-white">
   <nav class="navbar navbar-expand-lg py-3">
     <div class="container d-flex align-items-center justify-content-between">
 
@@ -606,7 +613,7 @@ export const components: ComponentItem[] = [
         <img 
           src=""
           alt="SNHU Logo" 
-          class="logo-blue-text" 
+          class="nav-logo" 
           height="64"
         />
       </a>
@@ -657,8 +664,8 @@ export const components: ComponentItem[] = [
       "Logo left, call and text contact links right. No countdown. White background.",
     previewImageUrl: `${import.meta.env.BASE_URL}Images/Nav Images/nav-white-bg.png`,
     tags: ["nav", "simple", "contact", "call", "text"],
-    markup: `<header class="bg-white">
-<nav class="navbar navbar-expand-lg p-3 navbar-bg-white">
+    markup: `<header class="navbar-bg-white">
+<nav class="navbar navbar-expand-lg p-3">
   <div class="container">
     <a class="navbar-brand" href="https://www.snhu.edu/">
       <img class="logo-blue-text" alt="SNHU Logo" height="80" />

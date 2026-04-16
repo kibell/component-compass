@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, ReactNode } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import {
@@ -28,7 +28,11 @@ import {
   getComponentsByGroup,
 } from "@/lib/components-data";
 
-const quickStartSteps = [
+const quickStartSteps: {
+  title: string;
+  description: ReactNode;
+  icon: React.ComponentType<{ className?: string }>;
+}[] = [
   {
     title: "Choose a category",
     description:
@@ -45,6 +49,38 @@ const quickStartSteps = [
     title: "Open details and copy markup",
     description:
       "Preview a component, inspect its notes, and copy the HTML snippet when you are ready to use it.",
+    icon: Copy,
+  },
+  {
+    title: "Open SNHU Component Sandbox",
+    description: (
+      <>
+        Copy and paste snippets into the sandbox for a live preview before
+        adding them to your project. This is a great way to validate spacing,
+        content, and layout. The sandbox is available{" "}
+        <a
+          href="https://kibell.github.io/component-sandbox/"
+          target="_blank"
+          rel="noreferrer"
+          className="font-medium underline text-primary hover:no-underline"
+        >
+          here
+        </a>{" "}
+        or in the welcome banner above.
+      </>
+    ),
+    icon: Copy,
+  },
+   {
+    title: "Preview HTML snippets in the sandbox",
+    description:
+      "Preview HTML and tweak text to fit your content before pasting it into your Salesforce Marketing Cloud.",
+    icon: Copy,
+  },
+   {
+    title: "Publish and share your Landing Page",
+    description:
+      "After customizing your Landing Page in the sandbox, copy the final HTML into your IDE and publish it to share with your audience. Other customization maybe need to tailor to your needs just as AmpScripting or any additional scripts",
     icon: Copy,
   },
 ];
@@ -137,19 +173,19 @@ export default function Home() {
         componentCounts={componentCounts}
       />
 
-      <main className="flex min-w-0 flex-1 flex-col overflow-y-auto lg:pl-72">
+      <main className="flex min-w-0 flex-1 flex-col overflow-y-auto  lg:pl-72">
         {/* Hero */}
-        <section className="border-b border-border bg-card p-0">
-          <div className="mx-auto flex max-w-6xl flex-col gap-8">
-            <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-              <div className="max-w-3xl space-y-4 pt-10 lg:pt-0">
-                <div className="inline-flex w-fit items-center gap-2 rounded-full bg-secondary px-3 py-1 text-sm font-medium text-secondary-foreground">
-                  <Workflow className="h-4 w-4" />
-                  Getting started guide
-                </div>
-                <div className="space-y-3">
-                  <h1 className="text-4xl font-bold tracking-tight text-foreground lg:text-5xl">
-                    Welcome to Component Compass
+        <section className="border-b border-border bg-card p-5">
+          <div className="mx-auto flex flex-col gap-8">
+            <div className="">
+              <div className="max-w-3xl space-y-4 pt-10 mt-10 lg:pt-0">
+                <div className="mt-10">
+                  <div className="inline-flex w-fit items-center gap-2 rounded-full bg-secondary  py-1 text-sm font-medium text-secondary-foreground">
+                    <Workflow className="h-4 w-4" />
+                    Getting started guide
+                  </div>
+                  <h1 className="text-4xl font-bold tracking-tight text-foreground lg:text-5xl  py-5">
+                    Welcome to SNHU Component Library
                   </h1>
                   <p className="max-w-2xl text-base leading-7 text-muted-foreground lg:text-lg">
                     This home page explains how to browse the library, inspect
@@ -159,7 +195,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="flex flex-col gap-3 sm:flex-row">
+              <div className="flex flex-col gap-3 sm:flex-row mt-5">
                 <Button
                   asChild
                   size="lg"
@@ -192,11 +228,6 @@ export default function Home() {
                     <Download className="h-4 w-4" />
                     Download starter HTML
                   </a>
-                </Button>
-                <Button asChild variant="outline" size="lg">
-                  <Link to="/components?group=navigation">
-                    View navigation examples
-                  </Link>
                 </Button>
               </div>
             </div>
@@ -279,8 +310,11 @@ export default function Home() {
         </section>
 
         {/* How-to + Tips */}
-        <section className="px-6 py-8 lg:px-8 lg:py-10">
-          <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-[1.25fr_0.75fr]">
+        <section
+          className="px-6 py-8 lg:px-8 lg:py-10"
+          style={{ backgroundColor: "#E6F0F7" }}
+        >
+          <div className="mx-auto grid  gap-6 lg:grid-cols-[1.25fr_0.75fr]">
             <Card>
               <CardHeader>
                 <CardTitle>How to use the application</CardTitle>
